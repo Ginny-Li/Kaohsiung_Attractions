@@ -66,6 +66,8 @@ for (let i = 0; i < zone.length; i++) {
   option.value = zone[i];
   option.textContent = zone[i];
   zoneOption.appendChild(option);
+  appendLocation();
+
 }
 
 //select選單綁定發生change
@@ -85,6 +87,7 @@ for (let i = 0; i < button.length; i++) {
     zoneOption.value = this.innerHTML;
     appendLocation();
     topButton.setAttribute("class", "visible");
+
   };
 }
 
@@ -96,6 +99,11 @@ function updateList(e) {
   zoneTitle.innerHTML = e.target.value;
   appendLocation();
   topButton.setAttribute("class", "visible");
+  if(zoneTitle.innerHTML==''){
+    topButton.removeAttribute("class", "visible");
+    topButton.setAttribute("class", "goTop");
+  }
+
 }
 
 //當資符合所選取的地區 讓ul 長出符合筆數的li
